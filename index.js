@@ -46,3 +46,78 @@ function mensajeAlarma() {
 }
 
 let alarma = setTimeout(mensajeAlarma, tiempoEnMiliseg);*/
+
+
+
+//Palindromo
+
+/*let textoIngresado = prompt('Escriba una frase o palabra');
+
+let sepArray=textoIngresado.split(''); //Para separar en elementos el texto ingresado.
+console.log(textoIngresado);
+
+for (let i=sepArray.length-1; i>=0; i--){
+    if (sepArray[i]==" " || sepArray[i]=="," || sepArray[i]=="." || sepArray[i]==";" || sepArray[i]==":" || sepArray[i]=="!" || sepArray[i]=="¡" || sepArray[i]=="¿" || sepArray[i]=="?" || sepArray[i]=="-" || sepArray[i]=="_" || sepArray[i]=="(" || sepArray[i]==")" || sepArray[i]=="[" || sepArray[i]=="]"){
+        let elementoEliminado=sepArray.splice(i,1);
+    }  
+
+}
+
+let nuevoArrayUnido=sepArray.join(''); //Aquí une los elementos como una cadena
+console.log(nuevoArrayUnido)
+
+let arrayMinusculas=nuevoArrayUnido.toLowerCase();
+
+let sepArrayNuevo=arrayMinusculas.split(''); //Para separar en elementos en cadena a elementos.
+console.log(sepArrayNuevo);
+
+let arrayPalindromo= sepArrayNuevo.reverse();//Para iniciar al revez el array
+console.log(arrayPalindromo);
+
+for (let i=0; i<arrayPalindromo.length; i++){ 
+    if(arrayPalindromo[i] !== sepArrayNuevo[i]){
+        console.log("No es un palindromo")
+    }else{
+        console.log(`La frase/palabra "${textoIngresado}" es un palindromo`)
+    }
+        
+}*/
+
+
+
+//FACTORIAL
+
+/*function fac (n,monto) { //monto es donde "guardaré" el valor nuevo
+    n=n-1;
+    if (n==0){
+        return 1;
+    }else if (n>1){
+        monto=monto*n;
+        return fac(n,monto);
+    }else if (n==1){
+        return monto*1;
+    }       
+}
+
+console.log(fac(5,5));*/
+
+//Flat array
+
+function matriz(multiDimension){
+
+    let resultadoMatriz=[]; //Matriz aplanada
+    
+    for (let i=0; i<multiDimension.length; i++) {
+        if (Array.isArray(multiDimension[i])){  //Array.isArray para saber si es un array el valor pasado.
+            resultadoMatriz=resultadoMatriz.concat(matriz(multiDimension[i])); //Se utiliza para fusionar dos o más matrices.
+        }else{
+            let elemento=resultadoMatriz.push(multiDimension[i]); //Sino es un array agrega el elemento a la matriz aplanada.
+        }
+    }
+    return resultadoMatriz;
+
+}
+
+
+let multiDimension = [1, [2, 3, [4, 5, [6]]]]; 
+console.log(matriz(multiDimension))
